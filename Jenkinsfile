@@ -39,7 +39,7 @@ pipeline {
 
       stage('Test the Source') {
         steps {
-          git url:'https://github.com/josecarlosjr/nginx-ingress-controller-reverse-proxy.git', branch:'main'
+          git url:'https://github.com/josecarlosjr/nginx-controller-reverse-proxy.git', branch:'main'
           }
         }
 
