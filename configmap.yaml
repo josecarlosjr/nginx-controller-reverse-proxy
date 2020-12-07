@@ -57,7 +57,7 @@ data:
         location / {
           proxy_set_header Upgrade $http_upgrade;
           proxy_set_header Connection "Upgrade";
-          proxy_pass http://10.32.0.8:80;
+          proxy_pass http://10.32.0.8:80; #kubectl get endpoints
           #proxy_set_header X-Forwarded-For $remote_addr;
           #proxy_set_header X-Real-IP $remote_addr;
           #proxy_set_header Host $http_host;
