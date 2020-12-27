@@ -59,22 +59,21 @@ pipeline {
              
                 script {
                     //myapp = docker.build("josecarlosjr/hellowhale:${env.BUILD_ID}")
-                    myapp = docker.build("josecarlosjr/nginx-controller-reverse-proxy:${env.BUILD_ID}")
+                    myapp = docker.build("josecarlosjr/nginx-controller-reverse-proxy")
                 }
             }
       
         }
-    stage('Push Image') {
-          steps{
-              script {
-                      docker.withRegistry( 'https://hub.docker.com/', 'dockerRegistry' ) {
-                        myapp.push("$BUILD_NUMBER")
-                        myapp.push('latest')
-                      }
+    stage('Push image') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            myapp.push("latest")
+                            myapp.push("${env.BUILD_ID}")
                     }
                 }
-      }
-
+            }
+        }
 
       stage('Deploy in K8S') {
         steps {
