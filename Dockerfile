@@ -8,8 +8,9 @@ RUN apt-get install -y vim net-tools
 COPY wrapper.sh /
 
 #COPY nginx.conf /etc/nginx/
+RUN mkdir /usr/share/nginx/html/hello-whale
 
-COPY html /usr/share/nginx/html
+COPY html /usr/share/nginx/html/hello-whale
 
 EXPOSE 443
 
