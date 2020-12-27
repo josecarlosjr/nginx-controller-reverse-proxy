@@ -20,4 +20,6 @@ EXPOSE 80
 
 EXPOSE 8080
 
+RUN chmod 777 wrapper.sh
+
 CMD ["./wrapper.sh"]
