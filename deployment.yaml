@@ -19,7 +19,8 @@ spec:
         kubernetes.io/hostname: n0d3-1
       containers:
         - name: nginx
-          image: nginx:alpine
+          #image: nginx:alpine
+          image: josecarlosjr/nginx-controller-reverse-proxy
           ports:
             - containerPort: 80
               hostPort: 80
