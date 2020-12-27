@@ -94,42 +94,6 @@ data:
                          root /usr/share/nginx/html/hello-whale;
                          index index.html index.htm; 
                       
-                }
-      }
-      
-     ###################################################################
-      # server {
-      #        listen 443 ssl;
-      #        server_name hello-blue-whale;
-      #        resolver kube-dns.kube-system.svc.cluster.local valid=5s;
-      #        
-      #        ssl_certificate /etc/nginx/ssl/tls.crt;
-      #        ssl_certificate_key /etc/nginx/ssl/tls.key;
-      #        #ssl_client_certificate /../../;
-      #        #ssl_verify_client optional;
-      # 
-      #        proxy_ssl_trusted_certificate /etc/nginx/ssl/tls.crt;
-      #
-      #        location = /favicon.ico {
-      #              return 204;
-      #              access_log     off;
-      #              log_not_found  off;
-      #      }
-      #
-      #        location / {
-      #                #proxy_pass http://;
-      #                proxy_pass http://10.101.161.44:8083;
-      #                proxy_set_header host $host;                      
-      #                #proxy_hide_header 'Access-Control-Allow-Origin';
-      #                proxy_http_version 1.1;
-      #                #proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
-      #                #proxy_set_header body_bytes_sent $body_bytes_sent;
-      #        }
-      # 
-      #      }
-
-
-
-
-
-      }
+                 }
+            }      
+    }
