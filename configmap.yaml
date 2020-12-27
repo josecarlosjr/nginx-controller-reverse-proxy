@@ -90,7 +90,7 @@ data:
                 ssl_certificate_key /etc/nginx/ssl/tls.key;
       #
                 location / {
-                         root root /usr/share/nginx/html/hello-whale;
+                         root /usr/share/nginx/html/hello-whale;
       #                  index index.html index.htm; 
       #                  proxy_pass http://10.101.161.44:8080;
       #                  
