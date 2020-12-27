@@ -91,7 +91,7 @@ data:
       #
                 location / {
                          root /usr/share/nginx/html/hello-whale;
-      #                  index index.html index.htm; 
+                         index index.html index.htm; 
       #                  proxy_pass http://10.101.161.44:8080;
       #                  
                 }
