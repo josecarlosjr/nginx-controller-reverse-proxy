@@ -50,7 +50,7 @@ pipeline {
             kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kconfig")
             kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "kconfig")
             kubernetesDeploy(configs: "service.yaml", kubeconfigId: "kconfig")
-            kubernetesDeploy(configs: "ingress.yaml", kubeconfigId: "kconfig")
+            
               }
             }
           }
