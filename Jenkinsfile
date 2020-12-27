@@ -1,10 +1,10 @@
 pipeline {
-
   //agent any
- // agent {label 'kubejenkins'}
- // agent {
+  //agent {label 'kubejenkins'}
+  
+  agent {
     kubernetes {
-     yaml """
+      yaml """
                 apiVersion: v1
                 kind: Pod
                 metadata:
@@ -26,7 +26,7 @@ pipeline {
                         cpu: "500m"
                         ephemeral-storage: "2Gi"
                     volumeMounts:
-                   - name: dockersock
+                    - name: dockersock
                       mountPath: "/var/run/docker.sock"
                   volumes:
                   - name: dockersock
@@ -34,7 +34,7 @@ pipeline {
                       path: /var/run/docker.sock
                 """
     }
- // } 
+  } 
   stages {
 
       stage('Test the Source') {
