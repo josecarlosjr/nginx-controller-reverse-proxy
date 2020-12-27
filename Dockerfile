@@ -5,11 +5,9 @@ RUN apt-get update && apt-get install -y apt-transport-https software-properties
 
 RUN apt-get install -y vim net-tools
 
-RUN rm /etc/nginx/nginx.conf
-
 COPY wrapper.sh /
 
-COPY nginx.conf /etc/nginx/
+#COPY nginx.conf /etc/nginx/
 
 COPY html /usr/share/nginx/html
 
