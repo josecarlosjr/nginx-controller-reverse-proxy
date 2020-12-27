@@ -79,21 +79,21 @@ data:
                     #proxy_set_header Connection "Upgrade";                     
                     #proxy_pass https://hello-blue-whale;
                     proxy_set_header Host $host;#             
-                    #return 301 https://10.101.161.44;
-                    return 301 https://$server_name$request_uri;
+                    return 301 http://10.101.161.44:80;
+                    #return 301 https://$server_name$request_uri;
               }
             }
-            server {
-                listen 443 ssl;
-                server_name hello-blue-whale;
-      
-                ssl_certificate /etc/nginx/ssl/tls.crt;
-                ssl_certificate_key /etc/nginx/ssl/tls.key;
-      
-                location / {
-                         root /usr/share/nginx/html/hello-whale;
-                         index index.html index.htm; 
-                      
-                 }
-            }      
+         #   server {
+         #       listen 443 ssl;
+         #       server_name hello-blue-whale;
+         #  
+         #       ssl_certificate /etc/nginx/ssl/tls.crt;
+         #       ssl_certificate_key /etc/nginx/ssl/tls.key;
+         # 
+         #       location / {
+         #                root /usr/share/nginx/html/hello-whale;
+         #                index index.html index.htm; 
+         #             
+         #        }
+         #     }      
     }
