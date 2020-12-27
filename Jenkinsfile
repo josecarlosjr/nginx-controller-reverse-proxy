@@ -1,4 +1,7 @@
 pipeline {
+  environment {
+    dockerRegistry = 'dockerhub'
+  }
   //agent any
   //agent {label 'kubejenkins'}
   
@@ -64,7 +67,7 @@ pipeline {
     stage('Deploy Image') {
           steps{
               script {
-                      docker.withRegistry( 'https://registry.hub.docker.com', 'git' ) {
+                      docker.withRegistry( 'https://registry.hub.docker.com', 'dockerRegistry' ) {
                       dockerImage.push("$BUILD_NUMBER")
                       dockerImage.push('latest')
                       }
