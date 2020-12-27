@@ -59,7 +59,18 @@ pipeline {
                     myapp = docker.build("josecarlosjr/nginx-controller-reverse-proxy")
                 }
             }
+      
         }
+    stage('Deploy Image') {
+          steps{
+              script {
+                      docker.withRegistry( 'https://registry.hub.docker.com', 'git' ) {
+                      dockerImage.push("$BUILD_NUMBER")
+                      dockerImage.push('latest')
+                      }
+                    }
+                }
+      }
 
 
       stage('Deploy in K8S') {
