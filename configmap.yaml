@@ -71,15 +71,15 @@ data:
            location = /favicon.ico {
                    return 204;
                    access_log     off;
-                    log_not_found  off;
+                   log_not_found  off;
               }
 
              location / {
                     #proxy_set_header upgrade $http_upgrade;
                     #proxy_set_header Connection "Upgrade";                     
-                    #proxy_pass https://hello-blue-whale;
-                    proxy_set_header Host $host;#             
-                    return 301 http://10.101.161.44:80;
+                    proxy_set_header Host $host;
+                    proxy_pass https://http://10.101.161.44:80;                                 
+                    #return 301 http://10.101.161.44:80;
                     #return 301 https://$server_name$request_uri;
               }
             }
