@@ -56,7 +56,7 @@ pipeline {
              
                 script {
                     //myapp = docker.build("josecarlosjr/hellowhale:${env.BUILD_ID}")
-                    myapp = docker.build("josecarlosjr/nginx-controller-reverse-proxy")
+                    myapp = docker.build("josecarlosjr/nginx-controller-reverse-proxy:${env.BUILD_ID}")
                 }
             }
       
