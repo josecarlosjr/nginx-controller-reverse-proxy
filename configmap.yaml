@@ -92,7 +92,12 @@ data:
            
                 ssl_certificate /etc/nginx/ssl/tls.crt;
                 ssl_certificate_key /etc/nginx/ssl/tls.key;
-          
+                 
+                location = /favicon.ico {
+                   return 204;
+                   access_log     off;
+                   log_not_found  off;
+                 }
                 location / {
                          #root /usr/share/nginx/html/hello-whale;
                          #index index.html index.htm;
