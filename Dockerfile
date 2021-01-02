@@ -2,7 +2,9 @@ FROM nginx
 
 USER root
 
-#RUN apt-get update 
+RUN hwclock --hctosys 
+
+RUN apt-get update 
 
 RUN apt-get install -y apt-transport-https software-properties-common 
 #RUN apk update 
