@@ -80,8 +80,7 @@ data:
                     proxy_set_header Host $host;
                     proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
                     proxy_http_version 1.1;
-                    #proxy_pass http://10.101.161.44:8080;                                 
-                    #return 301 http://10.101.161.44:80;
+                    proxy_set_header body_bytes_sent $body_bytes_sent;
                     return 301 https://$server_name$request_uri;
                     
               }
@@ -101,11 +100,12 @@ data:
                 location / {
                          #root /usr/share/nginx/html/hello-whale;
                          #index index.html index.htm;
-                         proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
-                         proxy_set_header connection "upgrade";
                          proxy_set_header upgrade $http_upgrade;
-                         proxy_set_header host $host;
+                         proxy_set_header Connection "Upgrade";                     
+                         proxy_set_header Host $host;
+                         proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
                          proxy_http_version 1.1;
+                         proxy_set_header body_bytes_sent $body_bytes_sent;
                          proxy_pass http://$server_name$request_uri;         
                       
                  }
