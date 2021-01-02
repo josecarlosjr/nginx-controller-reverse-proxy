@@ -2,12 +2,12 @@ FROM nginx
 
 USER root
 
-RUN hwclock --hctosys 
+#RUN hwclock --hctosys 
 
 RUN apt-get update 
 
-RUN apt-get install -y apt-transport-https software-properties-common 
-#RUN apk update 
+RUN apt-get install -y apt-transport-https 
+#RUN apk update software-properties-common 
 
 RUN apt-get install -y vim net-tools
 
