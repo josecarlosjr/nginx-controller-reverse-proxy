@@ -2,7 +2,9 @@ FROM nginx
 
 USER root
 
-RUN apt-get update && apt-get install -y apt-transport-https software-properties-common tcptraceroute
+RUN apt-get update 
+
+RUN apt-get install -y apt-transport-https software-properties-common tcptraceroute
 #RUN apk update 
 
 RUN apt-get install -y vim net-tools
