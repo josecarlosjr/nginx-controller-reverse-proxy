@@ -1,17 +1,17 @@
 FROM nginx
 
-USER root
-
 #RUN hwclock --hctosys 
 
-RUN apt-get update 
+RUN apt-get update && apt-get install -y apt-transport-https software-properties-common
 
-RUN apt-get install -y apt-transport-https 
+#RUN apt-get install -y apt-transport-https 
 #RUN apk update software-properties-common 
 
 RUN apt-get install -y vim net-tools
 
 COPY wrapper.sh /
+
+USER root
 
 #COPY nginx.conf /etc/nginx/
 RUN mkdir /usr/share/nginx/html/hello-whale
