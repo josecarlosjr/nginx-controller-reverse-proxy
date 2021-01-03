@@ -61,7 +61,7 @@ data:
 
             server {
              listen 80;
-             server_name hello-blue-whale;
+             server_name $server_name$request_uri;
              resolver kube-dns.kube-system.svc.cluster.local valid=5s;
 
             location /healthz {
@@ -78,9 +78,11 @@ data:
                     proxy_set_header upgrade $http_upgrade;
                     proxy_set_header Connection "Upgrade";                     
                     proxy_set_header Host $host;
-                    proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
+                    proxy_set_header X-Forwarded-Host $host:$server_port;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;                    
                     proxy_http_version 1.1;
-                    proxy_set_header body_bytes_sent $body_bytes_sent;
+                    #proxy_set_header body_bytes_sent $body_bytes_sent;
                     return 301 https://$server_name$request_uri;
                     
               }
@@ -103,7 +105,9 @@ data:
                          proxy_set_header upgrade $http_upgrade;
                          proxy_set_header Connection "Upgrade";                     
                          proxy_set_header Host $host;
-                         proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
+                         proxy_set_header X-Forwarded-Host $host:$server_port;
+                         proxy_set_header X-Forwarded-Server $host;
+                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                          proxy_http_version 1.1;
                          proxy_set_header body_bytes_sent $body_bytes_sent;
                          proxy_pass http://$server_name$request_uri;         
