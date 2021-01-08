@@ -88,7 +88,7 @@ data:
                     proxy_http_version 1.1;
                     #proxy_set_header body_bytes_sent $body_bytes_sent;
                     #return 301 http://$server_name$request_uri;
-                    proxy_pass http://10.105.58.197:80;
+                    proxy_pass http://10.97.204.73:80;
                     
               }
             }
