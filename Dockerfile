@@ -2,7 +2,7 @@ FROM nginx
 
 #RUN hwclock --hctosys 
 
-RUN apt-get update && apt-get install -y apt-transport-https software-properties-common
+RUN apt-get install -y apt-transport-https software-properties-common
 
 #RUN apt-get install -y apt-transport-https 
 #RUN apk update software-properties-common 
