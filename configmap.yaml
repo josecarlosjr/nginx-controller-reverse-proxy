@@ -87,36 +87,36 @@ data:
                     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;                    
                     proxy_http_version 1.1;
                     #proxy_set_header body_bytes_sent $body_bytes_sent;
-                    #return 301 https://$server_name$request_uri;
-                    proxy_pass https://$server_name$request_uri;
+                    return 301 https://$host$request_uri;
+                    #proxy_pass https://$server_name$request_uri;
                     
               }
             }
-            #server {
-            #    listen 443 ssl;
-            #    server_name hello-blue-whale;
-            # 
-            #    ssl_certificate /etc/nginx/ssl/tls.crt;
-            #    ssl_certificate_key /etc/nginx/ssl/tls.key;                
-            #    
-            #    location = /favicon.ico {
-            #       return 204;
-            #       access_log     off;
-            #       log_not_found  off;
-            #     }
-            #    location / {
-            #             #root /usr/share/nginx/html/hello-whale;
-            #             #index index.html index.htm;
-            #             proxy_set_header upgrade $http_upgrade;
-            #             proxy_set_header Connection "Upgrade";                     
-            #             proxy_set_header Host $host;
-            #             proxy_set_header X-Forwarded-Host $host:$server_port;
-            #             proxy_set_header X-Forwarded-Server $host;
-            #             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            #             proxy_http_version 1.1;
-            #             proxy_set_header body_bytes_sent $body_bytes_sent;
-            #             proxy_pass http://$server_name$request_uri;         
-            #          
-            #     }
-            #  }      
+            server {
+                listen 443 ssl;
+                server_name hello-blue-whale;
+             
+                ssl_certificate /etc/nginx/ssl/tls.crt;
+                ssl_certificate_key /etc/nginx/ssl/tls.key;                
+                
+                location = /favicon.ico {
+                   return 204;
+                   access_log     off;
+                   log_not_found  off;
+                 }
+                location / {
+                         #root /usr/share/nginx/html/hello-whale;
+                         #index index.html index.htm;
+                         proxy_set_header upgrade $http_upgrade;
+                         proxy_set_header Connection "Upgrade";                     
+                         proxy_set_header Host $host;
+                         proxy_set_header X-Forwarded-Host $host:$server_port;
+                         proxy_set_header X-Forwarded-Server $host;
+                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                         proxy_http_version 1.1;
+                         proxy_set_header body_bytes_sent $body_bytes_sent;
+                         proxy_pass http://$host$request_uri;         
+                      
+                 }
+              }      
     }
