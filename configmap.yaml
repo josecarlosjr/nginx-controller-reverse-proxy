@@ -90,7 +90,7 @@ data:
                          proxy_set_header X-Forwarded-Server $host;
                          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                          proxy_http_version 1.1;
-                         proxy_pass http://$server_name$request_uri;         
+                         proxy_pass http://10.108.206.207:80;         
                       
                  }
               }      
