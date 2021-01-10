@@ -93,5 +93,71 @@ data:
                          proxy_pass http://10.108.206.207:80;         
                       
                  }
-              }      
+              }
+              
+              ##################################################################
+              ##################################################################
+              
+              #NODE-API
+              
+              server {
+             listen 80;
+             server_name node-api-test;
+             resolver kube-dns.kube-system.svc.cluster.local valid=5s;
+             
+            
+             location = /favicon.ico {
+                     return 204;
+                     access_log     off;
+                     log_not_found  off;
+              }
+             location / {
+                    proxy_set_header upgrade $http_upgrade;
+                    proxy_set_header Connection "Upgrade";                     
+                    proxy_set_header Host $host;
+                    proxy_set_header X-Forwarded-Host $host:$server_port;
+                    proxy_set_header X-Forwarded-Server $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;                    
+                    proxy_http_version 1.1;                    
+                    #return 301 https://$host$request_uri;
+                    return 301 https://$server_name$request_uri;
+                    #proxy_pass https://$server_name$request_uri;
+                    
+              }
+            }
+            server {
+                listen 443;
+                server_name node-api-test;
+                resolver kube-dns.kube-system.svc.cluster.local valid=5s;
+                
+                ssl on;
+                ssl_certificate /etc/nginx/ssl/tls.crt;
+                ssl_certificate_key /etc/nginx/ssl/tls.key;                
+                ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+                ssl_ciphers         HIGH:!aNULL:!MD5;
+                
+                
+                location = /favicon.ico {
+                   return 204;
+                   access_log     off;
+                   log_not_found  off;
+                 }
+                location / {
+                         #root /usr/share/nginx/html/hello-whale;
+                         #index index.html index.htm;
+                         proxy_set_header upgrade $http_upgrade;
+                         proxy_set_header Connection "Upgrade";                     
+                         proxy_set_header Host $host;
+                         proxy_set_header X-Forwarded-Host $host:$server_port;
+                         proxy_set_header X-Forwarded-Server $host;
+                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                         proxy_http_version 1.1;
+                         proxy_pass http://10.104.14.234:3333;         
+                      
+                 }
+              } 
+              
+              
+              
+              
     }
