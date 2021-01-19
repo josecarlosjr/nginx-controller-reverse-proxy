@@ -9,7 +9,7 @@ RUN apt-get install -y apt-transport-https
 #RUN apt-get install -y apt-transport-https 
 #RUN apk update software-properties-common 
 
-RUN apt-get install -y vim net-tools
+#RUN apt-get install -y vim net-tools
 
 COPY wrapper.sh /
 
