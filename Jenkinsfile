@@ -85,15 +85,15 @@ pipeline {
       } 
     }  
      
-    stage('Deploy in K8S') {
-        steps {
-          script {
-            kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "kconfig")
-            kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kconfig")            
-            kubernetesDeploy(configs: "service.yaml", kubeconfigId: "kconfig")
-            
-              }
-            }
-          }
+    //stage('Deploy in K8S') {
+    //    steps {
+    //      script {
+    //        kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "kconfig")
+    //        kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kconfig")            
+    //        kubernetesDeploy(configs: "service.yaml", kubeconfigId: "kconfig")
+    //        
+    //          }
+    //        }
+    //      }
   }
 }
