@@ -44,6 +44,6 @@ spec:
         - name: ssl
           secret:
             secretName: proxy-ca-secret
-        - name: ssl-client
-          secret:
-            secretName: client-ca
+       # - name: ssl-client
+       #   secret:
+       #     secretName: client-ca
