@@ -33,6 +33,12 @@ data:
         location /healthz {
           return 200;
         }
+        
+        location = /favicon.ico {
+                     return 204;
+                     access_log     off;
+                     log_not_found  off;
+              }
 
         location / {
           proxy_set_header Upgrade $http_upgrade;
