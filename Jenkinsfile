@@ -76,15 +76,15 @@ pipeline {
         }
     
       
-   // stage('Erasing old Deployment') {
-   //   steps {
-   //    script {
-   //        kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "kconfig", deleteResource: true)
-   //        kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kconfig", deleteResource: true)
-   //        kubernetesDeploy(configs: "service.yaml", kubeconfigId: "kconfig", deleteResource: true)
-   //     }
-   //   } 
-   // }  
+    stage('Erasing old Deployment') {
+      steps {
+       script {
+           kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "kconfig", deleteResource: true)
+           kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kconfig", deleteResource: true)
+           kubernetesDeploy(configs: "service.yaml", kubeconfigId: "kconfig", deleteResource: true)
+        }
+      } 
+    }  
      
     stage('Deploy in K8S') {
         steps {
