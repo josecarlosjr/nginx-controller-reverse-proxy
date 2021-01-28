@@ -34,9 +34,9 @@ spec:
             - name: ssl
               mountPath: /etc/nginx/ssl
               readOnly: true
-            - name: ssl-client
-              mountPath: /etc/nginx/client
-              readOnly: true
+           # - name: ssl-client
+           #   mountPath: /etc/nginx/client
+           #   readOnly: true
       volumes:
         - name: nginx-config
           configMap:
