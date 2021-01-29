@@ -4,7 +4,7 @@ FROM nginx
 
 RUN apt-get update 
 
-RUN apt-get install -y apt-transport-https
+RUN apt-get install -y apt-transport-https software-properties-common
 
 #RUN apt-get install -y apt-transport-https 
 #RUN apk update software-properties-common 
